@@ -1,9 +1,9 @@
 ---
-name: lancement-business
-description: Utiliser cette skill pour aider à lancer, structurer ou faire décoller un business de service (agence, freelance, cabinet de conseil, drop-servicing...) que la cible soit au Bénin, ailleurs en Afrique, ou dans le reste du monde francophone (France, Belgique, Suisse, Canada/Québec...). Couvre la recherche de niche rentable, la structuration d'une offre irrésistible, le copywriting d'une landing page, le recrutement des prestataires qui livrent le service, et la prospection des premiers clients. Se déclenche quand l'utilisateur veut lancer un business, trouver son marché ou sa niche, définir/formaliser son offre et ses tarifs, écrire une page de vente, recruter des freelances/sous-traitants, ou prospecter des clients (cold outreach).
+name: axice
+description: Utiliser cette skill pour aider à lancer, structurer ou faire décoller un business de service (agence, freelance, cabinet de conseil, drop-servicing...) que la cible soit au Bénin, ailleurs en Afrique, ou dans le reste du monde francophone (France, Belgique, Suisse, Canada/Québec...). Couvre la recherche de niche rentable (avec recherche web), la structuration d'une offre irrésistible, le copywriting d'une landing page, le recrutement des prestataires qui livrent le service, et la prospection des premiers clients — chaque étape est consignée dans un fichier markdown. Se déclenche quand l'utilisateur veut lancer un business, trouver son marché ou sa niche, définir/formaliser son offre et ses tarifs, écrire une page de vente, recruter des freelances/sous-traitants, ou prospecter des clients (cold outreach).
 ---
 
-# Lancement de business de service
+# Axice — Lancement de business de service
 
 Cette skill encode une méthodologie en 5 étapes pour concevoir, lancer et scaler un
 business de service (modèle "drop-servicing" ou agence classique) : on conçoit
@@ -40,6 +40,35 @@ recrutement et de prospection).
   géographique, nom du business, budget), pose la question plutôt que
   d'inventer — mais si le contexte permet une hypothèse raisonnable,
   propose-la explicitement et avance.
+
+## Organisation des livrables (fichiers markdown)
+
+Chaque étape produit un livrable écrit et persistant, pas seulement une
+réponse dans le chat :
+
+- Tous les fichiers d'un business vont dans un dossier `business/<slug>/`
+  à la racine du répertoire de travail courant, où `<slug>` est le nom du
+  business en kebab-case sans accents (ex : "Cadence" → `cadence`). Si le
+  nom n'est pas encore choisi (typiquement à l'étape niche), dérive un slug
+  provisoire de la niche/du secteur (ex : `ugc-ecommerce`) et signale à
+  l'utilisateur qu'il pourra renommer le dossier une fois le nom trouvé.
+- Nommage des fichiers par étape :
+  - `01-niche.md`
+  - `02-offre.md`
+  - `03-landing-page.md`
+  - `04-recrutement.md`
+  - `05-prospection.md`
+  - `00-plan-execution.md` (produit à la fin d'un parcours complet via
+    `/lancer-business`)
+- Avant d'écrire une étape, vérifie si `business/<slug>/` existe déjà et
+  contient des fichiers d'étapes précédentes : lis-les pour garder la
+  cohérence (même nom d'entreprise, même positionnement, même devise) au
+  lieu de redemander des informations déjà données.
+- Chaque fichier commence par un titre H1, la date de génération, et un
+  rappel en une ligne du business concerné. Écris le contenu complet du
+  livrable dans le fichier (pas un résumé) ; le message dans le chat peut
+  rester plus court et renvoyer au fichier.
+- Annonce toujours à l'utilisateur le chemin du fichier créé ou mis à jour.
 
 ## Contexte juridique et fiscal
 
@@ -82,22 +111,38 @@ identifie qui a un budget réel et récurrent : institutions publiques,
 grandes entreprises, PME structurées, diaspora, ONG/bailleurs, e-commerçants,
 coachs/formateurs, agences...
 
-Quand l'utilisateur demande d'explorer une niche, utilise ce canevas de
-réflexion (adapte-le à sa cible, ne le récite pas mot pour mot) :
+Avant de conclure, fais une **recherche web approfondie** (plusieurs
+requêtes, pas une seule) pour consolider l'analyse plutôt que de t'appuyer
+uniquement sur tes connaissances internes :
+- Taille et dynamique du marché pour cette niche dans la zone visée
+  (croissance, actualité récente, tendances 2025-2026).
+- Concurrents déjà positionnés (agences, freelances, plateformes) : offres,
+  fourchettes de prix, positionnement.
+- Signaux de demande réels : offres d'emploi/missions freelance publiées,
+  discussions dans des forums/communautés/réseaux sociaux professionnels,
+  avis ou plaintes récurrentes de la cible sur ce problème.
+- Spécificités locales pertinentes (réglementation, usages, acteurs
+  dominants) pour la zone géographique visée.
+
+Utilise ce canevas de réflexion pour structurer l'analyse (adapte-le à la
+cible, ne le récite pas mot pour mot) :
 
 1. Qui est la cible précise (secteur, taille, zone géographique) ?
 2. Quels sont ses 3 problèmes les plus critiques, récurrents et coûteux
-   *en ce moment* ?
+   *en ce moment*, étayés par ce que la recherche web a remonté ?
 3. Pour chaque problème : un service simple, clair, à forte valeur ajoutée,
    qui ne demande pas de compétence technique avancée de la part de
    l'utilisateur lui-même (car il pourra déléguer la livraison).
 4. Évalue rapidement chaque piste sur : taille du marché accessible dans la
    zone géographique visée (Bénin, autre pays africain, ou francophonie
    internationale), budget probable du client, facilité à trouver des
-   prestataires locaux ou à distance, et concurrence déjà en place.
+   prestataires locaux ou à distance, et concurrence déjà en place (avec
+   exemples concrets trouvés en ligne).
 
 Termine toujours par une recommandation claire d'une niche à prioriser, avec
-la raison.
+la raison. Consigne l'analyse complète dans `business/<slug>/01-niche.md`,
+en terminant le fichier par une courte section "Sources" listant ce qui a
+été recherché (requêtes/liens clés) pour que l'utilisateur puisse vérifier.
 
 ## Étape 2 — Structurer une offre irrésistible
 
@@ -119,6 +164,8 @@ Livrables attendus quand on structure une offre :
    compte vs PME, pays à fort ou faible pouvoir d'achat).
 4. Une structure de garantie réaliste et soutenable financièrement.
 
+Consigne le résultat dans `business/<slug>/02-offre.md`.
+
 ## Étape 3 — Landing page / page de vente
 
 Structure standard qui convertit :
@@ -137,7 +184,8 @@ Structure standard qui convertit :
   qualité, paiement, confidentialité pour du B2B institutionnel).
 
 Rédige le texte complet (copywriting), pas juste un plan, sauf si
-l'utilisateur demande explicitement uniquement la structure.
+l'utilisateur demande explicitement uniquement la structure. Consigne le
+résultat dans `business/<slug>/03-landing-page.md`.
 
 ## Étape 4 — Recrutement des prestataires (livraison)
 
@@ -152,6 +200,8 @@ Quand on rédige une annonce de recrutement, elle doit préciser :
 - Le mode de collaboration visé (mission ponctuelle vs partenariat récurrent).
 - Le mode de paiement (par projet/livrable), dans la devise adaptée à la
   plateforme ou au pays du prestataire.
+
+Consigne le résultat dans `business/<slug>/04-recrutement.md`.
 
 ## Étape 5 — Acquisition client / prospection
 
@@ -176,6 +226,8 @@ faible repéré avec tact → offre de valeur gratuite ciblée → question ouve
 simple. Moins de 100 mots pour un message froid B2B classique ; plus formel
 et un peu plus long si la cible est une institution.
 
+Consigne les modèles dans `business/<slug>/05-prospection.md`.
+
 ## Plan d'exécution synthétique (à produire en fin de parcours complet)
 
 | Phase | Objectif | Action clé |
@@ -187,4 +239,5 @@ et un peu plus long si la cible est une institution.
 | Jour 5+ | Acquisition | Envoyer des messages ciblés chaque jour, suivre les réponses |
 
 Adapte ce tableau (délais, canaux) si le contexte du business le justifie
-(ex : cycle de vente B2B institutionnel plus long).
+(ex : cycle de vente B2B institutionnel plus long). Consigne-le dans
+`business/<slug>/00-plan-execution.md`.
