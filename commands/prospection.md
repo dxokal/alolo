@@ -3,8 +3,7 @@ description: Rédige des messages de prospection à froid personnalisés pour d�
 argument-hint: [cible / persona]
 ---
 
-Applique l'étape "Acquisition client / prospection" de la skill
-`lancement-business`.
+Applique l'étape "Acquisition client / prospection" de la skill `axice`.
 
 Cible donnée par l'utilisateur : $ARGUMENTS
 
@@ -15,3 +14,6 @@ commerciale. Adapte le ton et le canal à la cible : plus direct et court
 (moins de 100 mots) pour une PME/e-commerçant, plus formel (LinkedIn/email
 professionnel, orienté crédibilité et références) pour une institution ou un
 grand compte.
+
+Consigne les modèles dans `business/<slug>/05-prospection.md` et indique le
+chemin du fichier à l'utilisateur.

@@ -5,9 +5,9 @@
   },
   "plugins": [
     {
-      "name": "lancement-business",
+      "name": "axice",
       "source": "./",
-      "description": "Assistant pour lancer un business de service : niche, offre, landing page, recrutement et prospection, adapté à l'Afrique et au monde francophone."
+      "description": "Assistant pour lancer un business de service : niche (avec recherche web), offre, landing page, recrutement et prospection, adapté à l'Afrique et au monde francophone. Chaque étape est consignée dans des fichiers markdown."
     }
   ]
 }
