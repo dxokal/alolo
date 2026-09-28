@@ -1,0 +1,10 @@
+{
+  "name": "lancement-business",
+  "description": "Assistant pour lancer un business de service : niche, offre, landing page, recrutement et prospection, adapté à l'Afrique et au monde francophone.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Hodonou",
+    "email": "arkryonia@gmail.com"
+  },
+  "keywords": ["business", "lancement", "drop-servicing", "afrique", "francophonie", "ohada", "benin"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "alolo-marketplace",
+  "owner": {
+    "name": "Hodonou"
+  },
+  "plugins": [
+    {
+      "name": "lancement-business",
+      "source": "./",
+      "description": "Assistant pour lancer un business de service : niche, offre, landing page, recrutement et prospection, adapté à l'Afrique et au monde francophone."
+    }
+  ]
+}
