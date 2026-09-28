@@ -11,6 +11,6 @@ Si l'information est trop vague pour avancer, pose d'abord les questions
 manquantes (secteur précis, taille de la cible, zone géographique, budget
 probable). Sinon, identifie les 3 problèmes les plus critiques, récurrents et
 coûteux de cette cible en ce moment, propose pour chacun un service simple à
-forte valeur ajoutée (déléguable), évalue chaque piste (marché accessible au
-Bénin/UEMOA, budget probable, facilité à trouver des prestataires,
+forte valeur ajoutée (déléguable), évalue chaque piste (marché accessible dans la
+zone géographique visée, budget probable, facilité à trouver des prestataires,
 concurrence), puis recommande clairement une niche à prioriser et pourquoi.

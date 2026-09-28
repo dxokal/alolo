@@ -2,8 +2,10 @@
 
 Plugin Claude Code pour accompagner le lancement d'un business de service
 (agence, freelance, conseil, drop-servicing...), de la recherche de niche à
-la prospection des premiers clients. Méthodologie adaptée au contexte
-Bénin / OHADA / UEMOA (FCFA, formalités, paiement mobile money).
+la prospection des premiers clients. La structuration de l'entreprise
+(formalités, régime fiscal) part par défaut du contexte Bénin/OHADA, mais
+le marché ciblé peut être n'importe quel pays d'Afrique ou du monde
+francophone (devise, moyens de paiement et ton adaptés en conséquence).
 
 ## Contenu du plugin
 
