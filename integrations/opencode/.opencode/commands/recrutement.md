@@ -1,9 +1,9 @@
 ---
 description: Rédige une annonce pour recruter les prestataires qui livreront le service.
-argument-hint: [profil recherché]
 ---
 
-Applique l'étape "Recrutement des prestataires" de la skill `axice`.
+Étape "Recrutement des prestataires" (voir AGENTS.md pour les règles
+générales).
 
 Profil recherché donné par l'utilisateur : $ARGUMENTS
 

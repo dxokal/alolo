@@ -1,9 +1,8 @@
 ---
 description: Identifie une niche rentable et les 3 problèmes prioritaires d'une cible (méthode "Hungry Crowd").
-argument-hint: [secteur ou type de client cible]
 ---
 
-Applique l'étape "Niche & Hungry Crowd" de la skill `axice`.
+Étape "Niche & Hungry Crowd" (voir AGENTS.md pour les règles générales).
 
 Cible / secteur donné par l'utilisateur : $ARGUMENTS
 

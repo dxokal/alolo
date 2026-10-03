@@ -1,10 +1,9 @@
 ---
 description: Parcours complet pour lancer un business de service, de la niche à l'onboarding client.
-argument-hint: [idée, secteur ou marché cible - optionnel]
 ---
 
-Applique la méthodologie de la skill `axice` pour accompagner l'utilisateur
-du début à la fin du lancement de son business.
+Parcours complet (voir AGENTS.md pour les règles générales et le détail de
+chaque étape dans les autres commandes de ce dossier).
 
 Idée / secteur / marché de départ donné par l'utilisateur : $ARGUMENTS
 
@@ -50,7 +49,7 @@ Termine par le tableau "Plan d'exécution synthétique" rempli et adapté au
 contexte de ce business précis (délais réalistes, canaux choisis), écrit
 dans `business/<slug>/00-plan-execution.md`.
 
-Rappelle-toi des règles de sortie de la skill : français, ton pro et
+Rappelle-toi des règles générales d'AGENTS.md : français, ton pro et
 chaleureux pour les documents commerciaux, devise adaptée à la zone
 géographique ciblée par le client (pas de FCFA par défaut si la cible n'est
 pas en zone UEMOA/CEMAC), options avec coûts/risques/recommandation pour

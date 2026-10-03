@@ -1,9 +1,8 @@
 ---
 description: Structure une offre irrésistible (promesse, livrables, prix, garantie).
-argument-hint: [nom de l'entreprise] [cible] [livrable principal]
 ---
 
-Applique l'étape "Offre irrésistible" de la skill `axice`.
+Étape "Offre irrésistible" (voir AGENTS.md pour les règles générales).
 
 Éléments donnés par l'utilisateur (nom d'entreprise, cible, livrable) :
 $ARGUMENTS
@@ -19,7 +18,7 @@ des éléments manquent, demande-les. Sinon, produis :
 4. Une structure de garantie réaliste et soutenable pour l'utilisateur.
 
 Signale que ce prix est une hypothèse à revalider financièrement une fois
-les coûts de prestataires connus (`/finances`, étape 8).
+les coûts de prestataires connus (`/finances`).
 
 Consigne le résultat dans `business/<slug>/03-offre.md` et indique le
 chemin du fichier à l'utilisateur. Suggère ensuite `/landing-page` comme

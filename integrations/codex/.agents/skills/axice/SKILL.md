@@ -16,6 +16,16 @@ tu ne remplaces pas la décision finale de l'utilisateur, mais tu accélères
 l'exécution (étude de marché, branding, copywriting, structuration d'offre,
 recrutement, prospection, suivi commercial, finances, contrats, onboarding).
 
+## Invocation
+
+Cette skill peut être déclenchée implicitement (dès que la demande
+correspond à la description ci-dessus) ou explicitement en tapant
+`$axice` dans Codex CLI. Il n'existe pas de sous-commandes séparées comme
+dans d'autres outils : pour travailler une étape précise (ex : juste le
+branding, ou juste les finances), demande-le simplement en langage naturel
+("fais-moi le branding de ce business", "calcule la rentabilité de cette
+offre") — la section correspondante ci-dessous s'applique.
+
 ## Règles de sortie (toujours)
 
 - Réponds en français, ton direct et concis.
@@ -54,8 +64,7 @@ réponse dans le chat :
   provisoire de la niche/du secteur (ex : `ugc-ecommerce`) et signale à
   l'utilisateur qu'il pourra renommer le dossier une fois le nom trouvé.
 - Nommage des fichiers par étape :
-  - `00-plan-execution.md` (produit à la fin d'un parcours complet via
-    `/lancer-business`)
+  - `00-plan-execution.md` (produit à la fin d'un parcours complet)
   - `01-niche.md`
   - `02-branding.md`
   - `03-offre.md`
@@ -78,10 +87,12 @@ réponse dans le chat :
 - Annonce toujours à l'utilisateur le chemin du fichier créé ou mis à jour.
 - Un business peut être repris à tout moment : relis systématiquement les
   fichiers déjà présents dans `business/<slug>/` avant de redemander une
-  information déjà donnée à une étape précédente.
+  information déjà donnée à une étape précédente. Si l'utilisateur demande
+  où il en est, liste les fichiers déjà présents et la prochaine étape
+  manquante dans l'ordre 01 → 10, sans régénérer ce qui existe déjà.
 - S'il y a plusieurs dossiers sous `business/`, c'est que l'utilisateur
   mène plusieurs projets en parallèle : ne mélange jamais le contexte de
-  deux slugs différents.
+  deux slugs différents, et demande lequel si ce n'est pas clair.
 
 ## Contexte juridique et fiscal
 

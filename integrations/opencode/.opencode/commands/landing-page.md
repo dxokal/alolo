@@ -1,9 +1,8 @@
 ---
 description: Rédige le copywriting complet d'une landing page qui convertit.
-argument-hint: [nom de l'entreprise et rappel rapide de l'offre]
 ---
 
-Applique l'étape "Landing page" de la skill `axice`.
+Étape "Landing page" (voir AGENTS.md pour les règles générales).
 
 Contexte donné par l'utilisateur (nom d'entreprise, offre) : $ARGUMENTS
 

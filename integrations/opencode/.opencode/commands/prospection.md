@@ -1,9 +1,9 @@
 ---
 description: Rédige des messages de prospection à froid personnalisés pour décrocher les premiers clients.
-argument-hint: [cible / persona]
 ---
 
-Applique l'étape "Acquisition client / prospection" de la skill `axice`.
+Étape "Acquisition client / prospection" (voir AGENTS.md pour les règles
+générales).
 
 Cible donnée par l'utilisateur : $ARGUMENTS
 
@@ -19,6 +19,7 @@ Consigne les modèles dans `business/<slug>/06-prospection.md` et indique le
 chemin du fichier à l'utilisateur. Si l'utilisateur mentionne des prospects
 réellement contactés (ou cite une liste de cibles à contacter), ajoute-les
 aussi au pipeline `business/<slug>/07-suivi-prospects.md` (crée-le avec
-l'en-tête de colonnes de la skill s'il n'existe pas encore) plutôt que de
-les laisser uniquement dans ce fichier de modèles. Suggère ensuite
-`/pipeline` pour gérer les relances au fil du temps.
+l'en-tête de colonnes `Contact | Entreprise | Canal | Date contact | Statut
+| Prochaine action | Date relance | Notes` s'il n'existe pas encore)
+plutôt que de les laisser uniquement dans ce fichier de modèles. Suggère
+ensuite `/pipeline` pour gérer les relances au fil du temps.
