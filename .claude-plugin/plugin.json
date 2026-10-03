@@ -1,7 +1,7 @@
 {
   "name": "axice",
-  "description": "Assistant pour lancer un business de service : niche (avec recherche web), offre, landing page, recrutement et prospection, adapté à l'Afrique et au monde francophone. Chaque étape est consignée dans des fichiers markdown.",
-  "version": "0.3.0",
+  "description": "Assistant pour lancer un business de service : niche (avec recherche web), branding, offre, landing page, recrutement, prospection avec suivi de pipeline, finances, contrat/CGV et onboarding client. Adapté à l'Afrique et au monde francophone. Chaque étape est consignée dans des fichiers markdown.",
+  "version": "0.4.0",
   "author": {
     "name": "Hodonou",
     "email": "arkryonia@gmail.com"

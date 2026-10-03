@@ -19,4 +19,5 @@ concurrence), puis recommande clairement une niche à prioriser et pourquoi.
 
 Consigne l'analyse complète, sources incluses, dans
 `business/<slug>/01-niche.md` (crée le dossier s'il n'existe pas) et
-indique le chemin du fichier à l'utilisateur.
+indique le chemin du fichier à l'utilisateur. Suggère ensuite `/branding`
+comme étape suivante.

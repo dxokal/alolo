@@ -2,33 +2,61 @@
 
 Plugin Claude Code pour accompagner le lancement d'un business de service
 (agence, freelance, conseil, drop-servicing...), de la recherche de niche à
-la prospection des premiers clients. La structuration de l'entreprise
+l'onboarding du premier client. La structuration de l'entreprise
 (formalités, régime fiscal) part par défaut du contexte Bénin/OHADA, mais
 le marché ciblé peut être n'importe quel pays d'Afrique ou du monde
 francophone (devise, moyens de paiement et ton adaptés en conséquence).
 
 Chaque étape est consignée dans un fichier markdown persistant (dossier
-`business/<slug>/` dans ton répertoire de travail), et la recherche de
-niche s'appuie sur des recherches web approfondies plutôt que sur de simples
-connaissances générales.
+`business/<slug>/` dans ton répertoire de travail), la recherche de niche
+s'appuie sur des recherches web approfondies, et un pipeline de prospection
+garde la trace des relances.
 
 ## Contenu du plugin
 
-- **Skill `axice`** : la méthodologie complète (niche, offre, landing page,
-  recrutement, prospection), déclenchée automatiquement dès que la
-  conversation porte sur le lancement d'un business.
+- **Skill `axice`** : la méthodologie complète en 10 étapes, déclenchée
+  automatiquement dès que la conversation porte sur le lancement d'un
+  business.
 - **Commandes slash** :
   - `/lancer-business [idée / secteur]` — parcours complet, étape par étape.
   - `/niche [secteur ou cible]` — trouver une niche rentable (avec
     recherche web).
+  - `/branding [niche ou idée de nom]` — nom, baseline, ton de marque.
   - `/offre [entreprise] [cible] [livrable]` — structurer l'offre et le prix.
   - `/landing-page [entreprise]` — rédiger la page de vente.
   - `/recrutement [profil recherché]` — rédiger une annonce pour trouver un
     prestataire.
   - `/prospection [cible]` — rédiger des messages de cold outreach.
-- **Livrables** : chaque commande écrit son résultat dans
-  `business/<slug>/0X-etape.md` (voir `skills/axice/SKILL.md` pour le détail
-  du nommage), en réutilisant le contexte des fichiers déjà présents.
+  - `/pipeline [slug] [action]` — ajouter/mettre à jour des prospects,
+    savoir qui relancer.
+  - `/finances [slug]` — marge par client, seuil de rentabilité,
+    prévisionnel.
+  - `/contrat [slug ou client]` — CGV + trame de contrat client.
+  - `/onboarding [client ou slug]` — kickoff et suivi du nouveau client.
+  - `/business-status [slug]` — état d'avancement d'un business, ou liste
+    de tous les business en cours si aucun slug n'est donné.
+
+## Structure des livrables
+
+Chaque commande écrit son résultat dans `business/<slug>/`, en réutilisant
+le contexte des fichiers déjà présents :
+
+```
+business/<slug>/
+  00-plan-execution.md
+  01-niche.md
+  02-branding.md
+  03-offre.md
+  04-landing-page.md
+  05-recrutement.md
+  06-prospection.md
+  07-suivi-prospects.md   # pipeline, mis à jour en continu
+  08-finances.md
+  09-contrat-cgv.md
+  10-onboarding.md
+```
+
+Voir `skills/axice/SKILL.md` pour le détail de chaque étape.
 
 ## Installation
 
@@ -49,5 +77,7 @@ Une fois installé, tape par exemple :
 /lancer-business agence de création de contenu pour marques e-commerce
 ```
 
-ou lance une étape isolée avec `/niche`, `/offre`, `/landing-page`,
-`/recrutement`, `/prospection`.
+ou lance une étape isolée avec `/niche`, `/branding`, `/offre`,
+`/landing-page`, `/recrutement`, `/prospection`, `/pipeline`, `/finances`,
+`/contrat`, `/onboarding`. Utilise `/business-status` à tout moment pour
+savoir où tu en es.

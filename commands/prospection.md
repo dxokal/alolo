@@ -15,5 +15,10 @@ commerciale. Adapte le ton et le canal à la cible : plus direct et court
 professionnel, orienté crédibilité et références) pour une institution ou un
 grand compte.
 
-Consigne les modèles dans `business/<slug>/05-prospection.md` et indique le
-chemin du fichier à l'utilisateur.
+Consigne les modèles dans `business/<slug>/06-prospection.md` et indique le
+chemin du fichier à l'utilisateur. Si l'utilisateur mentionne des prospects
+réellement contactés (ou cite une liste de cibles à contacter), ajoute-les
+aussi au pipeline `business/<slug>/07-suivi-prospects.md` (crée-le avec
+l'en-tête de colonnes de la skill s'il n'existe pas encore) plutôt que de
+les laisser uniquement dans ce fichier de modèles. Suggère ensuite
+`/pipeline` pour gérer les relances au fil du temps.

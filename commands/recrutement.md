@@ -12,7 +12,9 @@ façon vérifiable, le format et le délai de livraison attendus (ex : 48-72h),
 le mode de collaboration visé (ponctuel vs récurrent), et le mode de
 paiement (par projet/livrable). Adapte le canal suggéré (Upwork/Fiverr,
 réseaux locaux/diaspora, communautés spécialisées) au profil recherché, et
-propose la devise adaptée à ce canal.
+propose la devise adaptée à ce canal. Inclus une estimation du coût par
+livrable/mois : elle servira au calcul de rentabilité (`/finances`).
 
-Consigne le résultat dans `business/<slug>/04-recrutement.md` et indique le
-chemin du fichier à l'utilisateur.
+Consigne le résultat dans `business/<slug>/05-recrutement.md` et indique le
+chemin du fichier à l'utilisateur. Suggère ensuite `/prospection` et
+`/finances` comme étapes suivantes.
