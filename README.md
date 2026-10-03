@@ -81,3 +81,17 @@ ou lance une étape isolée avec `/niche`, `/branding`, `/offre`,
 `/landing-page`, `/recrutement`, `/prospection`, `/pipeline`, `/finances`,
 `/contrat`, `/onboarding`. Utilise `/business-status` à tout moment pour
 savoir où tu en es.
+
+## Codex CLI et OpenCode
+
+Le format de plugin ci-dessus (`.claude-plugin/`, commandes slash,
+`SKILL.md` à déclenchement auto) est spécifique à Claude Code. Le dossier
+[`integrations/`](integrations/) contient une adaptation du même contenu
+pour deux autres outils, avec leurs propres mécanismes d'extension :
+
+- [`integrations/codex/`](integrations/codex/) — skill Codex CLI
+  (`.agents/skills/axice/SKILL.md`, portage quasi direct).
+- [`integrations/opencode/`](integrations/opencode/) — `AGENTS.md` +
+  commandes `.opencode/commands/*.md` pour OpenCode.
+
+Voir le `README.md` de chaque dossier pour l'installation.
