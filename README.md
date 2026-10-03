@@ -33,6 +33,10 @@ garde la trace des relances.
     prévisionnel.
   - `/contrat [slug ou client]` — CGV + trame de contrat client.
   - `/onboarding [client ou slug]` — kickoff et suivi du nouveau client.
+  - `/tunnel [slug - optionnel]` — transformer une landing page existante
+    en tunnel d'acquisition technique (capture, notification, relances,
+    suivi de statut) — add-on optionnel qui produit aussi du code
+    applicatif, à lancer une fois `/landing-page` fait.
   - `/business-status [slug]` — état d'avancement d'un business, ou liste
     de tous les business en cours si aucun slug n'est donné.
 
@@ -54,6 +58,7 @@ business/<slug>/
   08-finances.md
   09-contrat-cgv.md
   10-onboarding.md
+  11-tunnel.md            # optionnel, add-on technique (voir /tunnel)
 ```
 
 Voir `skills/axice/SKILL.md` pour le détail de chaque étape.
@@ -79,8 +84,10 @@ Une fois installé, tape par exemple :
 
 ou lance une étape isolée avec `/niche`, `/branding`, `/offre`,
 `/landing-page`, `/recrutement`, `/prospection`, `/pipeline`, `/finances`,
-`/contrat`, `/onboarding`. Utilise `/business-status` à tout moment pour
-savoir où tu en es.
+`/contrat`, `/onboarding`, ou encore `/tunnel` une fois la landing page
+prête pour la transformer en tunnel d'acquisition technique (capture,
+notification, relances, suivi de statut). Utilise `/business-status` à
+tout moment pour savoir où tu en es.
 
 ## Codex CLI et OpenCode
 

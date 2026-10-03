@@ -1,10 +1,11 @@
 # Axice — Lancement de business de service
 
 Ce fichier donne à OpenCode le contexte permanent de la méthodologie
-"axice" : 10 étapes pour concevoir, lancer et scaler un business de
-service (modèle "drop-servicing" ou agence classique). Les commandes
-`/niche`, `/branding`, `/offre`, `/landing-page`, `/recrutement`,
-`/finances`, `/prospection`, `/pipeline`, `/contrat`, `/onboarding`,
+"axice" : 10 étapes (plus une étape optionnelle de tunnel d'acquisition
+technique) pour concevoir, lancer et scaler un business de service
+(modèle "drop-servicing" ou agence classique). Les commandes `/niche`,
+`/branding`, `/offre`, `/landing-page`, `/recrutement`, `/finances`,
+`/prospection`, `/pipeline`, `/contrat`, `/onboarding`, `/tunnel`,
 `/business-status` et `/lancer-business` (dans `.opencode/commands/`)
 détaillent chaque étape ; ce fichier porte les règles qui s'appliquent à
 toutes.
@@ -65,6 +66,9 @@ réponse dans le chat :
   - `08-finances.md`
   - `09-contrat-cgv.md`
   - `10-onboarding.md`
+  - `11-tunnel.md` (optionnel, implémentation technique — déclenché par
+    `/tunnel` une fois la landing page de l'étape 4 écrite ; jamais produit
+    automatiquement par `/lancer-business`)
 - Avant d'écrire une étape, vérifie si `business/<slug>/` existe déjà et
   contient des fichiers d'étapes précédentes : lis-les pour garder la
   cohérence (même nom d'entreprise, même positionnement, même devise) au
@@ -116,7 +120,7 @@ juridique définitif. Ceci s'applique en particulier à `/contrat` : les
 modèles produits sont des points de départ à faire relire, jamais un
 contrat prêt à signer sans validation.
 
-## Les 10 étapes en un coup d'œil
+## Les 11 étapes en un coup d'œil
 
 | # | Étape | Commande | Fichier |
 | --- | --- | --- | --- |
@@ -130,7 +134,11 @@ contrat prêt à signer sans validation.
 | 8 | Finances (seuil de rentabilité) | `/finances` | `08-finances.md` |
 | 9 | Contrat / CGV | `/contrat` | `09-contrat-cgv.md` |
 | 10 | Onboarding client | `/onboarding` | `10-onboarding.md` |
+| 11 | Tunnel d'acquisition technique (add-on optionnel) | `/tunnel` | `11-tunnel.md` |
 
 `/lancer-business` enchaîne les étapes 1 à 6-7 avec validation à chaque
 étape ; `/business-status` donne l'état d'avancement d'un business ou la
-liste de tous les business en cours.
+liste de tous les business en cours. `/contrat`, `/onboarding` et
+`/tunnel` sont proposés au bon moment (conversion d'un prospect, landing
+page prête) mais ne sont jamais déclenchés automatiquement par
+`/lancer-business`.

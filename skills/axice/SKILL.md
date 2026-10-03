@@ -1,15 +1,16 @@
 ---
 name: axice
-description: Utiliser cette skill pour aider à lancer, structurer et faire décoller un business de service (agence, freelance, cabinet de conseil, drop-servicing...) que la cible soit au Bénin, ailleurs en Afrique, ou dans le reste du monde francophone (France, Belgique, Suisse, Canada/Québec...). Couvre la recherche de niche rentable (avec recherche web), le branding, la structuration d'une offre irrésistible, le copywriting d'une landing page, le recrutement des prestataires, la prospection des premiers clients avec suivi de pipeline, le volet financier (seuil de rentabilité), le contrat/CGV, et l'onboarding client après la vente. Chaque étape est consignée dans un fichier markdown. Se déclenche quand l'utilisateur veut lancer un business, trouver son marché ou sa niche, choisir un nom, définir/formaliser son offre et ses tarifs, écrire une page de vente, recruter des freelances/sous-traitants, prospecter des clients (cold outreach), suivre ses prospects, calculer sa rentabilité, rédiger un contrat/CGV, ou accueillir un nouveau client.
+description: Utiliser cette skill pour aider à lancer, structurer et faire décoller un business de service (agence, freelance, cabinet de conseil, drop-servicing...) que la cible soit au Bénin, ailleurs en Afrique, ou dans le reste du monde francophone (France, Belgique, Suisse, Canada/Québec...). Couvre la recherche de niche rentable (avec recherche web), le branding, la structuration d'une offre irrésistible, le copywriting d'une landing page, le recrutement des prestataires, la prospection des premiers clients avec suivi de pipeline, le volet financier (seuil de rentabilité), le contrat/CGV, et l'onboarding client après la vente. Chaque étape est consignée dans un fichier markdown. Se déclenche quand l'utilisateur veut lancer un business, trouver son marché ou sa niche, choisir un nom, définir/formaliser son offre et ses tarifs, écrire une page de vente, recruter des freelances/sous-traitants, prospecter des clients (cold outreach), suivre ses prospects, calculer sa rentabilité, rédiger un contrat/CGV, ou accueillir un nouveau client, ou transformer une landing page déjà écrite en tunnel d'acquisition technique (formulaire de capture, notification immédiate, relances automatiques, suivi de statut).
 ---
 
 # Axice — Lancement de business de service
 
-Cette skill encode une méthodologie en 10 étapes pour concevoir, lancer et
-scaler un business de service (modèle "drop-servicing" ou agence
-classique) : on conçoit l'offre, on assure le marketing et la relation
-client, et on délègue tout ou partie de la livraison technique à des
-prestataires qualifiés.
+Cette skill encode une méthodologie en 10 étapes, plus une étape
+optionnelle de mise en œuvre technique d'un tunnel d'acquisition, pour
+concevoir, lancer et scaler un business de service (modèle
+"drop-servicing" ou agence classique) : on conçoit l'offre, on assure le
+marketing et la relation client, et on délègue tout ou partie de la
+livraison technique à des prestataires qualifiés.
 
 Dans ce rôle, agis comme un **Directeur Marketing et Opérationnel virtuel** :
 tu ne remplaces pas la décision finale de l'utilisateur, mais tu accélères
@@ -67,6 +68,9 @@ réponse dans le chat :
   - `08-finances.md`
   - `09-contrat-cgv.md`
   - `10-onboarding.md`
+  - `11-tunnel.md` (optionnel, implémentation technique — déclenché par
+    `/tunnel` une fois la landing page de l'étape 4 écrite ; jamais produit
+    automatiquement par `/lancer-business`)
 - Avant d'écrire une étape, vérifie si `business/<slug>/` existe déjà et
   contient des fichiers d'étapes précédentes : lis-les pour garder la
   cohérence (même nom d'entreprise, même positionnement, même devise) au
@@ -362,6 +366,90 @@ sur de bonnes bases et préparer la fidélisation/upsell :
    supérieur.
 
 Consigne le résultat dans `business/<slug>/10-onboarding.md`.
+
+## Étape 11 — Tunnel d'acquisition technique (add-on optionnel)
+
+Étape optionnelle, à ne déclencher que sur demande explicite (`/tunnel`) et
+uniquement une fois la landing page de l'étape 4 rédigée
+(`business/<slug>/04-landing-page.md`) : elle transforme ce texte de vente
+en un vrai tunnel technique qui capte, notifie et suit les prospects, sans
+attendre un setup commercial complet. C'est la seule étape de la
+méthodologie qui produit du code applicatif (dans l'arborescence normale
+du projet, hors `business/`) en plus de son livrable markdown.
+
+Le tunnel couvre, dans l'ordre : visiteur → page d'atterrissage →
+formulaire de capture → enregistrement du prospect → notification
+immédiate à l'utilisateur (WhatsApp et/ou email) → séquence de relance
+automatique → suivi de statut (`nouveau` → `contacté` → `atelier de
+cadrage planifié` → `devis envoyé` → `signé` → `perdu`).
+
+### Avant de coder : un plan court à valider
+
+Avant d'écrire la moindre ligne de code, produis un plan court couvrant :
+- **Stack** : par défaut Next.js (App Router) + TypeScript strict +
+  Server Components, géré avec bun — sauf si le projet existant impose
+  déjà une autre stack, auquel cas adapte-toi à elle.
+- **Stockage des prospects** : une option par défaut + au moins 2
+  alternatives plus simples, avec leur coût.
+- **Notification immédiate** (WhatsApp via lien `wa.me` pré-rempli, ou une
+  plateforme WhatsApp Business déjà connectée au compte de l'utilisateur
+  si disponible, et/ou email) : option par défaut + alternatives, avec
+  coût — sans jamais nommer en dur un service tiers particulier dans le
+  code ou le contenu produit, configuration via variables d'environnement.
+- **Hébergement** : option par défaut + au moins 2 alternatives, avec
+  coût (y compris gratuit si pertinent).
+
+Signale explicitement tout choix qui engage un service payant ou un
+compte externe, et **attends l'accord explicite de l'utilisateur avant de
+commencer à coder** quoi que ce soit — adapte les options à ce que
+l'utilisateur a déjà (compte existant, budget, hébergeur).
+
+### Contraintes techniques (à appliquer systématiquement, sauf avis contraire explicite)
+
+- Mobile-first et page légère : connexions lentes fréquentes sur les
+  marchés visés, donc pas de poids superflu (images optimisées, JS
+  minimal, pas de traqueur lourd).
+- Next.js App Router, TypeScript strict, Server Components par défaut
+  (Client Components seulement où c'est nécessaire — ex : formulaire
+  interactif).
+- Validation des données du formulaire avec Zod, côté serveur.
+- Anti-spam : honeypot + rate limiting sur l'endpoint de capture.
+- Secrets (clés API, tokens d'envoi) en variables d'environnement, avec un
+  `.env.example` tenu à jour.
+- Conformité : consentement explicite avant toute relance automatique,
+  lien de désinscription dans chaque message de relance, mentions légales
+  et politique de confidentialité sur la landing page.
+- Mesure légère uniquement : visite, clic sur le CTA, formulaire envoyé —
+  pas d'outil d'analytics lourd ni de tracking cross-site.
+
+### Livraison en 3 étapes validées une à une
+
+Ne pas tout livrer d'un bloc : propose, code et fais valider chaque étape
+avant de passer à la suivante.
+1. **Landing + capture + stockage + notification** : page connectée au
+   formulaire, enregistrement du prospect, notification immédiate à
+   l'utilisateur.
+2. **Relances automatiques** : séquence de relance programmée, avec
+   respect du consentement et de la désinscription.
+3. **Tableau de suivi des statuts** : vue (page interne ou export)
+   listant les prospects avec leur statut dans le cycle `nouveau` →
+   `contacté` → `atelier de cadrage planifié` → `devis envoyé` → `signé`
+   → `perdu`, et possibilité de changer un statut.
+
+Pour chaque étape livrée : écris au moins un test qui couvre la
+fonctionnalité ajoutée, et ne déclare l'étape terminée qu'une fois lint et
+tests passants.
+
+Hors périmètre par défaut (ne pas construire sauf demande explicite) :
+paiement en ligne, espace client, CRM complet — le tableau de suivi de
+l'étape 3 reste une vue simple, pas un CRM.
+
+Consigne le plan validé et les décisions prises (stack, stockage, service
+de notification choisi, hébergement, coûts) dans
+`business/<slug>/11-tunnel.md` — ce fichier documente les décisions, le
+code lui-même vit dans l'arborescence normale du projet. Indique à
+l'utilisateur à la fois le chemin de ce fichier et l'emplacement du code
+ajouté/modifié.
 
 ## Plan d'exécution synthétique (à produire en fin de parcours complet)
 

@@ -27,7 +27,8 @@ cp integrations/opencode/.opencode/commands/*.md "$HOME/.config/opencode/command
 
 Les mêmes commandes qu'avec Claude Code : `/lancer-business`, `/niche`,
 `/branding`, `/offre`, `/landing-page`, `/recrutement`, `/prospection`,
-`/pipeline`, `/finances`, `/contrat`, `/onboarding`, `/business-status`.
+`/pipeline`, `/finances`, `/contrat`, `/onboarding`, `/tunnel`,
+`/business-status`.
 
 `AGENTS.md` étant toujours chargé, tu peux aussi simplement discuter en
 langage naturel ("aide-moi à trouver une niche pour mon agence") : OpenCode
@@ -35,4 +36,5 @@ aura déjà les règles de sortie, la structure de fichiers et le contexte
 juridique/fiscal en tête, même sans taper de commande.
 
 Les livrables sont écrits aux mêmes emplacements que dans la version
-Claude Code : `business/<slug>/01-niche.md` à `10-onboarding.md`.
+Claude Code : `business/<slug>/01-niche.md` à `10-onboarding.md` (plus
+`11-tunnel.md` pour l'add-on optionnel `/tunnel`).

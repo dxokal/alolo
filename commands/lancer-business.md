@@ -46,6 +46,13 @@ Pour le reste (contrat/CGV et onboarding), n'anticipe pas automatiquement :
 propose-les quand l'utilisateur signale un prospect converti, en renvoyant
 vers `/contrat` puis `/onboarding`.
 
+Si la landing page de l'étape 4 a été produite et que l'utilisateur veut
+aller plus loin que le texte de vente (capture automatisée des prospects,
+notification immédiate, relances, suivi de statut), signale que `/tunnel`
+existe comme add-on optionnel pour transformer cette landing page en
+tunnel technique — mais ne le lance jamais automatiquement dans ce
+parcours.
+
 Termine par le tableau "Plan d'exécution synthétique" rempli et adapté au
 contexte de ce business précis (délais réalistes, canaux choisis), écrit
 dans `business/<slug>/00-plan-execution.md`.

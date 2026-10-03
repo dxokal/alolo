@@ -35,4 +35,5 @@ cp -r integrations/codex/.agents/skills/axice "$HOME/.agents/skills/axice"
   Claude Code, tout passe par cette skill unique.
 
 Les livrables sont écrits aux mêmes emplacements que dans la version
-Claude Code : `business/<slug>/01-niche.md` à `10-onboarding.md`.
+Claude Code : `business/<slug>/01-niche.md` à `10-onboarding.md` (plus
+`11-tunnel.md` pour le tunnel d'acquisition technique optionnel).

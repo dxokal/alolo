@@ -7,7 +7,7 @@
     {
       "name": "axice",
       "source": "./",
-      "description": "Assistant pour lancer un business de service : niche (avec recherche web), branding, offre, landing page, recrutement, prospection avec suivi de pipeline, finances, contrat/CGV et onboarding client. Adapté à l'Afrique et au monde francophone. Chaque étape est consignée dans des fichiers markdown."
+      "description": "Assistant pour lancer un business de service : niche (avec recherche web), branding, offre, landing page, recrutement, prospection avec suivi de pipeline, finances, contrat/CGV, onboarding client, et transformation optionnelle de la landing page en tunnel d'acquisition technique (capture, notification, relances, suivi de statut). Adapté à l'Afrique et au monde francophone. Chaque étape est consignée dans des fichiers markdown."
     }
   ]
 }
